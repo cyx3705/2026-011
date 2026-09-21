@@ -1,70 +1,66 @@
-# 极保守 LFS 策略：不按扩展名批量套 LFS。
-# 旧的按扩展名通配（*.asm / *.baml 这类文本也在内）是 11GB LFS 占用
-# 与推送被 GitHub pre-receive 拒收的根因。
-# 下面只逐条列出**已经是 LFS 指针**的现存文件，保证这些指针不失效；
-# 新文件一律不自动进 LFS——只有单个文件超过 GitHub 100MB 硬限时，
-# 才由提交链路逐个征求人工同意后按精确路径追加。
+# LFS 规则：不到 100MB 的文件一律不走 LFS。
+# ≥100MB 的具体文件由下面的 HistoryJanus lfs 托管块逐条列出，其余行不得出现 filter=lfs。
 * text=auto
 
-b-LFSFils/普通环岛模拟/普通环岛模拟.png filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/普通环岛模拟/普通路网模拟.results/1.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/普通环岛模拟/普通路网模拟.results/10.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/普通环岛模拟/普通路网模拟.results/11.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/普通环岛模拟/普通路网模拟.results/12.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/普通环岛模拟/普通路网模拟.results/13.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/普通环岛模拟/普通路网模拟.results/14.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/普通环岛模拟/普通路网模拟.results/15.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/普通环岛模拟/普通路网模拟.results/16.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/普通环岛模拟/普通路网模拟.results/17.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/普通环岛模拟/普通路网模拟.results/2.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/普通环岛模拟/普通路网模拟.results/3.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/普通环岛模拟/普通路网模拟.results/4.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/普通环岛模拟/普通路网模拟.results/5.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/普通环岛模拟/普通路网模拟.results/6.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/普通环岛模拟/普通路网模拟.results/7.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/普通环岛模拟/普通路网模拟.results/8.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/普通环岛模拟/普通路网模拟.results/9.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/1.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/10.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/11.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/12.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/13.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/14.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/15.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/16.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/17.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/18.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/19.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/2.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/20.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/21.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/22.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/23.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/24.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/25.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/26.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/27.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/28.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/29.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/3.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/30.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/31.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/32.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/33.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/34.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/35.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/36.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/37.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/38.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/39.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/4.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/5.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/6.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/7.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/8.db filter=lfs diff=lfs merge=lfs -text
-b-LFSFils/类移位左转环岛/普通路网模拟.results/9.db filter=lfs diff=lfs merge=lfs -text
-b-Office/修改-一种顺时针环岛交通导流系统及通行方法(2).doc filter=lfs diff=lfs merge=lfs -text
-b-Office/说明.docx filter=lfs diff=lfs merge=lfs -text
-b-Picture/Logo.png filter=lfs diff=lfs merge=lfs -text
-b-Picture/Scan.jpg filter=lfs diff=lfs merge=lfs -text
-b-Picture/Scan1.jpg filter=lfs diff=lfs merge=lfs -text
+b-LFSFils/普通环岛模拟/普通环岛模拟.png -text
+b-LFSFils/普通环岛模拟/普通路网模拟.results/1.db -text
+b-LFSFils/普通环岛模拟/普通路网模拟.results/10.db -text
+b-LFSFils/普通环岛模拟/普通路网模拟.results/11.db -text
+b-LFSFils/普通环岛模拟/普通路网模拟.results/12.db -text
+b-LFSFils/普通环岛模拟/普通路网模拟.results/13.db -text
+b-LFSFils/普通环岛模拟/普通路网模拟.results/14.db -text
+b-LFSFils/普通环岛模拟/普通路网模拟.results/15.db -text
+b-LFSFils/普通环岛模拟/普通路网模拟.results/16.db -text
+b-LFSFils/普通环岛模拟/普通路网模拟.results/17.db -text
+b-LFSFils/普通环岛模拟/普通路网模拟.results/2.db -text
+b-LFSFils/普通环岛模拟/普通路网模拟.results/3.db -text
+b-LFSFils/普通环岛模拟/普通路网模拟.results/4.db -text
+b-LFSFils/普通环岛模拟/普通路网模拟.results/5.db -text
+b-LFSFils/普通环岛模拟/普通路网模拟.results/6.db -text
+b-LFSFils/普通环岛模拟/普通路网模拟.results/7.db -text
+b-LFSFils/普通环岛模拟/普通路网模拟.results/8.db -text
+b-LFSFils/普通环岛模拟/普通路网模拟.results/9.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/1.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/10.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/11.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/12.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/13.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/14.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/15.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/16.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/17.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/18.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/19.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/2.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/20.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/21.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/22.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/23.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/24.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/25.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/26.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/27.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/28.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/29.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/3.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/30.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/31.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/32.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/33.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/34.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/35.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/36.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/37.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/38.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/39.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/4.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/5.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/6.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/7.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/8.db -text
+b-LFSFils/类移位左转环岛/普通路网模拟.results/9.db -text
+b-Office/修改-一种顺时针环岛交通导流系统及通行方法(2).doc -text
+b-Office/说明.docx -text
+b-Picture/Logo.png -text
+b-Picture/Scan.jpg -text
+b-Picture/Scan1.jpg -text
